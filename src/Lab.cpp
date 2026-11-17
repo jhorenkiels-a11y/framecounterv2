@@ -64,8 +64,15 @@ void PlayerExtras::save(PlayerObject* p) {
     padRingRelated = p->m_padRingRelated;
     holdingLeft = p->m_holdingLeft;
     holdingRight = p->m_holdingRight;
-    holdingButtons = p->m_holdingButtons;
-    jumpPadRelated = p->m_jumpPadRelated;
+    holdingButtons.clear();
+for (auto const& entry : p->m_holdingButtons) {
+    holdingButtons.insert(entry);
+}
+
+jumpPadRelated.clear();
+for (auto const& entry : p->m_jumpPadRelated) {
+    jumpPadRelated.insert(entry);
+}
     touchedRings = p->m_touchedRings;
     ringRelatedSet = p->m_ringRelatedSet;
 }
